@@ -16,15 +16,15 @@ function RightPanel() {
         </div>
         <div className="w-[124px]  h-[106px]  bg-[#FFEFE2] rounded-lg flex flex-col items-center justify-center gap-3 hover:scale-110 hover:animate-pulse shadow-md">
           <h2 className="text-slate-400 ">Complteted</h2>
-          <h1 className="text-slate-600 text-lg font-extrabold">144</h1>
+          <h1 className="text-slate-600 text-lg font-extrabold">56</h1>
         </div>
         <div className="w-[124px] h-[106px]  bg-[#FEEEFF] rounded-lg flex flex-col items-center justify-center gap-3 hover:scale-110 hover:animate-pulseshadow-md">
           <h2 className="text-slate-400 ">In Progress</h2>
-          <h1 className="text-slate-600 text-lg font-extrabold">144</h1>
+          <h1 className="text-slate-600 text-lg font-extrabold">73</h1>
         </div>
         <div className="w-[124px] h-[106px]  bg-[#F1ECFF] rounded-lg flex flex-col items-center justify-center gap-3 hover:scale-110 hover:animate-pulse shadow-md">
           <h2 className="text-slate-400 ">TOTAL</h2>
-          <h1 className="text-slate-600 text-lg font-extrabold">144</h1>
+          <h1 className="text-slate-600 text-lg font-extrabold">24</h1>
         </div>
       </div>
     </div>
