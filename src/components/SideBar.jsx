@@ -10,7 +10,7 @@ import {MdOutlineFindInPage} from 'react-icons/md'
 import {IoIosSettings} from 'react-icons/io'
 function SideBar() {
   return (
-    <div className="bg-[#1E0057] h-screen w-16 flex flex-col shadow-xlg justify-center items-center">
+    <div className=" bg-gradient-to-b from-[#1E0057] to-slate-400 h-screen w-16 flex flex-col shadow-xlg justify-center items-center">
       {/* FC TODO LIST ICON  */}
       <div className="flex-grow pt-10">
         <FcTodoList className="w-10 h-10" />

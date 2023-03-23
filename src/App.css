@@ -15,3 +15,5 @@
     background-color: #EEF5FF;
     border-radius: 45px;
   }
+  body{position: fixed;
+width: 100vw;}

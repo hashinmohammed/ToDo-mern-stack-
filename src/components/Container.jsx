@@ -1,5 +1,7 @@
 import React from "react";
 import Tile from "./Tile";
+// import Modal from "./Modal"
+import TextArea from './TextArea';
 
 function Container() {
   return (
@@ -10,21 +12,27 @@ function Container() {
 
       <div className="flex w-full bg-gradient-to-r from-[#C557EF] rounded-t-3xl h-[84px] justify-between items-center ">
         <h1 className="text-[24px] font-bold p-14 text-[#1E0057]">TO DO</h1>
-        <button className="bg-[#744BE4] w-16 m-14 rounded-full h-9 shadow-md text-white">
+        <button  className="bg-[#744BE4] w-16 m-14 rounded-full h-9 shadow-md text-white hover:scale-105"
+        
+        >
           ADD
         </button>
       </div>
       </div>
       <div className="mt-[84px]">
-      <Tile />
-      <Tile />
-      <Tile />
-      <Tile />
-      <Tile />
+        <TextArea />
+     
       </div>
 
-     
-      
+   
+<Tile />
+<Tile />
+<Tile />
+<Tile />
+<Tile />
+<Tile />
+<Tile />
+
 
      
     </div>

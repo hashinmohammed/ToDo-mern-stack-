@@ -5,6 +5,7 @@ import SideBar from './components/SideBar';
 import InputBar from './components/InputBar';
 import Container from './components/Container';
 import RightPanel from './components/RightPanel';
+import Tile from './components/Tile';
 
 function App() {
   return (
@@ -12,13 +13,15 @@ function App() {
   <SideBar />
   <div>
   <InputBar />
-  <div className='flex'><Container />
+  <div className='flex'>
+    <Container />
   <RightPanel />
   </div>
-  
+ 
+   
 
   </div>
- 
+
     </div>
   )
 }
