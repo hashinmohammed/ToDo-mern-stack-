@@ -10,12 +10,12 @@ import {MdOutlineFindInPage} from 'react-icons/md'
 import {IoIosSettings} from 'react-icons/io'
 function SideBar() {
   return (
-    <div className=" bg-gradient-to-b from-[#1E0057] to-slate-400 h-screen w-16 flex flex-col shadow-xlg justify-center items-center">
+    <div className=" bg-gradient-to-b from-[#1E0057] to-[#2f8197] h-screen w-16 flex flex-col shadow-xlg justify-center items-center hover:shadow-2xl hover:-translate-x-1">
       {/* FC TODO LIST ICON  */}
       <div className="flex-grow pt-10">
-        <FcTodoList className="w-10 h-10" />
+        <FcTodoList className="w-10 h-10 hover:scale-105" />
       </div>
-      <div className="flex flex-col flex-grow gap-8 text-[24px] text-white/40">
+      <div className="flex flex-col flex-grow gap-8 text-[28px] text-white/40">
         <button><BiHome className="hover:bg-[#744BE4] rounded-full"/></button>
         <button><AiOutlineUser className="hover:bg-[#744BE4] rounded-full" /></button>
         <button><HiOutlineMail className="hover:bg-[#744BE4] rounded-full"/></button>

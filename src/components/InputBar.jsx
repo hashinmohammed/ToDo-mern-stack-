@@ -6,7 +6,7 @@ import {AiTwotoneCalendar} from 'react-icons/ai'
 
 function InputBar() {
   return (
-    <div className="mt-5 ">
+    <div className="mt-5">
       <div className="flex gap-5 border-none  ">
         <div className="ml-12">
           <div className="flex bg-white rounded-3xl gap-5">
