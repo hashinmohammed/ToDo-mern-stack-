@@ -11,10 +11,14 @@ function Container() {
   };
 
   useEffect(() => {
-   const todolist  = localStorage.getItem("todos")
-  setList(JSON.parse(todolist))
+   const todolist  = JSON.parse( localStorage.getItem("todos"))
+  setList(todolist)
   
-  },[])
+  },[list])
+  // useEffect(() => {
+  //   // This effect will be triggered each time the list state variable changes
+  //   console.log("List has changed:", list);
+  // }, [list]);
   
 
   return (
@@ -29,7 +33,7 @@ function Container() {
               className="bg-[#744BE4] w-16 m-14 rounded-full h-9 shadow-md text-white hover:scale-105"
               onClick={handleAddClick}
             >
-             { isAdding ? "Cancel":"ADD" }
+             { isAdding ? "Cancel" :"Add" }
             </button>
           </div>
         </div>
@@ -42,7 +46,7 @@ function Container() {
         </div>
         {
 list?.map((item)=>{
-  return <Tile heading={item.heading} description={item.description} date={item.date} key={item.id} />
+  return <Tile heading={item.heading}  date={item.date} key={item.id} id ={item.id} setList={setList} />
   })
         }
        
@@ -52,4 +56,4 @@ list?.map((item)=>{
   );
 }
 
-export default Container;
+export default Container;  

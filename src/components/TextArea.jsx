@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 function TextArea(props) {
   const [formData, setFormData] = useState({
-    date: "",
-    heading: "",
-    description: "",
-    id: "",
+    // date: "",
+    // heading: "",
+    // description: "",
+    // id: "",
   });
   const [formDatas, setFormDatas] = useState([]);
   useEffect(() => {
@@ -87,7 +87,7 @@ function TextArea(props) {
               required
             />
             <div className="flex gap-6">
-              <button
+              <button 
                 className="ml-12 p-2 px-4 rounded-3xl bg-[#F3DBFB] hover:scale-110 text-slate-400"
                 type="submit"
               >
