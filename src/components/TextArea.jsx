@@ -1,47 +1,42 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
-import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-function TextArea(props) {
+
+function TextArea({ setList, setIsAdding }) {
   const [formData, setFormData] = useState({
-    // date: "",
-    // heading: "",
-    // description: "",
-    // id: "",
+    date: "",
+    heading: "",
+    description: "",
   });
-  const [formDatas, setFormDatas] = useState([]);
-  useEffect(() => {
-    const list = localStorage.getItem("todos");
-    if (list) {
-      setFormDatas(JSON.parse(list)); // parse the list string back to an array
-    }
-  }, []);
 
   const handleChange = (e) => {
-    // console.log(e.target)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = uuidv4();
-    formData.id = id;
-    const newDatas = [ formData,...formDatas];
-    setFormDatas(newDatas);
-    localStorage.setItem("todos", JSON.stringify(newDatas)); // update local storage with updated formDatas
+    const newTodo = {
+      ...formData,
+      id: uuidv4(),
+    };
+    setList((prevList) => {
+      const updatedList = [newTodo, ...prevList];
+      localStorage.setItem("todos", JSON.stringify(updatedList));
+      return updatedList;
+    });
     setFormData({ date: "", heading: "", description: "" });
+    setIsAdding(false);
   };
-  // const [cancel,setCancel]=useState(true)
-  // function handleSetCancel(){
-  //   setCancel(false)
-  // }
+
+  const handleCancel = () => {
+    setIsAdding(false);
+  };
 
   return (
     <div className="flex">
       <div
         id="main"
-        className="bg-[#FFFFFF] w-full h-3/4 z-30 mx-10  duration-1000"
+        className="bg-[#FFFFFF] w-full h-3/4 z-30 mx-10 duration-1000"
       >
         <nav className="bg-gradient-to-l from-[#87E3FA] h-12">
           <span>
@@ -56,11 +51,11 @@ function TextArea(props) {
           />
 
           <form
-            className="flex flex-col gap-5 w-3/4 items-center justify-center p-5 "
+            className="flex flex-col gap-5 w-3/4 items-center justify-center p-5"
             onSubmit={handleSubmit}
           >
             <input
-              className=" border-gray-300  border-2 rounded-3xl px-6 w-full  focus:outline-none  uppercase text-blue-400 focus:shadow-lg"
+              className="border-gray-300 border-2 rounded-3xl px-6 w-full focus:outline-none uppercase text-blue-400 focus:shadow-lg"
               type="date"
               name="date"
               value={formData.date}
@@ -68,7 +63,7 @@ function TextArea(props) {
               required
             />
             <input
-              className=" h-10 border-2 border-gray-300 rounded-3xl p-6 w-full  focus:outline-none text-blue-400 bg-white focus:shadow-lg"
+              className="h-10 border-2 border-gray-300 rounded-3xl p-6 w-full focus:outline-none text-blue-400 bg-white focus:shadow-lg"
               type="text"
               name="heading"
               placeholder="Heading"
@@ -78,7 +73,7 @@ function TextArea(props) {
             />
 
             <input
-              className="h-20 border-2 border-gray-300 rounded-3xl p-6 w-full  text-blue-400 focus:outline-none  focus:shadow-lg bg-white"
+              className="h-20 border-2 border-gray-300 rounded-3xl p-6 w-full text-blue-400 focus:outline-none focus:shadow-lg bg-white"
               type="text"
               name="description"
               placeholder="Description"
@@ -95,7 +90,8 @@ function TextArea(props) {
               </button>
               <button
                 className="bg-[#F3DBFB] p-2 rounded-3xl text-slate-400 hover:scale-110"
-              
+                type="button"
+                onClick={handleCancel}
               >
                 Cancel
               </button>

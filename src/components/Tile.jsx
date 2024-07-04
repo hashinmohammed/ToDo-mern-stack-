@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import { AiTwotoneEdit } from "react-icons/ai";
+import React from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 function Tile({ heading, date, id, setList }) {
@@ -14,19 +13,15 @@ function Tile({ heading, date, id, setList }) {
     "Saturday",
   ];
   const dayOfWeek = daysOfWeek[selectedDate.getDay()];
+
   const handleDelete = () => {
-    // Get the list of tiles from localStorage
-    const tiles = JSON.parse(localStorage.getItem("todos")) || [];
-
-    // Filter out the tile with the matching id
-    const updatedTiles = tiles.filter((tile) => tile.id !== id);
-
-    // Update the list of tiles in localStorage
-    localStorage.setItem("todos", JSON.stringify(updatedTiles));
-
-    // Rerender the tiles by setting state in the parent component
-    setList(updatedTiles);
+    setList((prevList) => {
+      const updatedList = prevList.filter((tile) => tile.id !== id);
+      localStorage.setItem("todos", JSON.stringify(updatedList));
+      return updatedList;
+    });
   };
+
   return (
     <div id="alltile" className="mr-8">
       <div className="flex text-slate-400">
@@ -39,22 +34,19 @@ function Tile({ heading, date, id, setList }) {
         </div>
 
         <div className="h-28 my-6 bg-gradient-to-r from-[#dae4e3] w-full rounded-lg shadow-md hover:scale-105 cursor-pointer flex items-center justify-between overflow-hidden">
-        <div className="w-3/4 overflow-auto"> <h1 className="capitalize font-extrabold text-2xl ml-32">{heading}</h1></div>
-         
-         
-            {/* <div>
-              <AiTwotoneEdit className="hover:bg-slate-200 h-10  w-10 p-2 rounded-full " />
-            </div> */}
-            <div className="flex justify-center items-center h-full w-1/4">  
+          <div className="w-3/4 overflow-auto">
+            <h1 className="capitalize font-extrabold text-2xl ml-32">
+              {heading}
+            </h1>
+          </div>
+          <div className="flex justify-center items-center h-full w-1/4">
             <div>
               <RiDeleteBin5Line
                 onClick={handleDelete}
-                className="hover:bg-slate-200 h-10  w-10 p-2   rounded-full"
+                className="hover:bg-slate-200 h-10 w-10 p-2 rounded-full"
               />
             </div>
-            </div>
-           
-         
+          </div>
         </div>
       </div>
     </div>
